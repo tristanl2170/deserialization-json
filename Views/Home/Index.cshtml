@@ -1,0 +1,77 @@
+﻿
+@using APIproject.Controllers;
+@using APIproject.Models;
+@using Newtonsoft.Json;
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
+
+<style>
+
+    #users
+    {
+        font-family:"Trirong", serif;
+        border-collapse: collapse;
+        width: 100%;  
+    }
+
+    #users td, #users th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #users tr:nth-child(even){background-color: #f2f2f2;}
+
+    #users th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #878f99;
+      color: white;
+}
+</style>
+
+
+
+
+
+<br />
+
+
+    <table id="users">
+
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Website</th>
+        </tr>
+        @foreach (var roots in Model)
+        {
+            <tr>
+                <td>@roots.id</td>
+                <td>@roots.name</td>
+                <td>@roots.username</td>
+                <td>@roots.email</td>
+                <td>
+                    @roots.address.street , 
+                    @roots.address.suite , 
+                    @roots.address.city ,
+                    @roots.address.zipcode
+                </td>
+                <td>@roots.phone</td>
+                <td>@roots.website</td>
+
+            </tr>
+
+        }
+    </table>
+
+
+
+
+
+
+
